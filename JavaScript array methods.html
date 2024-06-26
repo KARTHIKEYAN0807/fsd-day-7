@@ -9,7 +9,7 @@
   <h1>Group Objects by Property</h1>
 
   <script>
-    // Array of people objects
+    
 const people = [
   { name: 'Bob', age: 25 },
   { name: 'Alice', age: 21 },
@@ -18,9 +18,9 @@ const people = [
   { name: 'David', age: 25 }
 ];
 
-// Grouping function using reduce
+
 const groupByAge = people.reduce((acc, person) => {
-  const key = person.age.toString(); // Convert age to string for grouping
+  const key = person.age.toString(); 
   if (!acc[key]) {
     acc[key] = [];
   }
@@ -28,7 +28,7 @@ const groupByAge = people.reduce((acc, person) => {
   return acc;
 }, {});
 
-// Displaying the grouped result
+
 console.log(groupByAge);
     
       
