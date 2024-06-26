@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group Objects by Property</title>
+</head>
+<body>
+  <h1>Group Objects by Property</h1>
+
+  <script>
+    // Array of people objects
+const people = [
+  { name: 'Bob', age: 25 },
+  { name: 'Alice', age: 21 },
+  { name: 'Edward', age: 23 },
+  { name: 'Charlie', age: 21 },
+  { name: 'David', age: 25 }
+];
+
+// Grouping function using reduce
+const groupByAge = people.reduce((acc, person) => {
+  const key = person.age.toString(); // Convert age to string for grouping
+  if (!acc[key]) {
+    acc[key] = [];
+  }
+  acc[key].push(person);
+  return acc;
+}, {});
+
+// Displaying the grouped result
+console.log(groupByAge);
+    
+      
+
+    
+      
+  </script>
+</body>
+</html>
