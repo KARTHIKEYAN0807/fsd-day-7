@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countries Using US Dollars</title>
+</head>
+<body>
+  <h1>Countries Using US Dollars</h1>
+
+  <script>
+    
+    var xhr = new XMLHttpRequest();
+
+    
+    var url = 'https://restcountries.com/v3.1/all';
+
+    
+    xhr.open('GET', url, true);
+
+    
+    xhr.onload = function () {
+      if (xhr.status >= 200 && xhr.status < 400) {
+        
+        var countries = JSON.parse(xhr.responseText);
+
+        
+        var usDollarCountries = countries.filter(function(country) {
+          return country.currencies && country.currencies.USD; 
+        });
+
+        
+        usDollarCountries.forEach(function(country) {
+          console.log(country.name.common);
+          
+        });
+
+      } else {
+        console.error('Failed to load data; status code:', xhr.status);
+      }
+    };
+
+    
+    xhr.onerror = function () {
+      console.error('Request failed');
+    };
+
+    
+    xhr.send();
+  </script>
+</body>
+</html>
